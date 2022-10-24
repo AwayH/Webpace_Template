@@ -14,8 +14,9 @@ module.exports = {
 
   // 入口（多入口以物件設定）
   entry: {
-    index: './views/index',
-    async: './views/async',
+    index: './views/Index',
+    demo1: './views/Demo1',
+    demo2: './views/Demo2',
   },
 
   // 設定開發版本才會有 source-map，上線版則否
@@ -135,7 +136,15 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin(
       {
-        title: '基本測試',
+        title: '首頁 - 佔版面用',
+        template: './views/Index/template.html',
+        filename: 'index.html',
+        chunks: ['index'],
+      },
+    ),
+    new HtmlWebpackPlugin(
+      {
+        title: 'Demo - 基本測試',
         meta: {
           description: '此網頁的介紹文',
           keyword: '此網頁的關鍵字',
@@ -160,17 +169,17 @@ module.exports = {
             content: '此網頁轉貼到 FB 上渲染出來的影像',
           },
         },
-        template: './views/Index/template.html',
-        filename: 'index.html',
-        chunks: ['index'],
+        template: './views/Demo1/template.html',
+        filename: 'demo1.html',
+        chunks: ['demo1'],
       },
     ),
     new HtmlWebpackPlugin(
       {
-        title: 'Async',
-        template: './views/Async/template.html',
-        filename: 'async.html',
-        chunks: ['async'],
+        title: 'Demo - 非同步測試',
+        template: './views/Demo2/template.html',
+        filename: 'demo2.html',
+        chunks: ['demo2'],
       },
     ),
     new MiniCssExtractPlugin(
