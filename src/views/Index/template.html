@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+</head>
+
+<body>
+
+  <header class="header" id="Header"></header>
+
+  <div class="page container mx-auto">
+    <header class="page__head">
+      <h1 class="page__tit">
+        <%= htmlWebpackPlugin.options.title %>
+      </h1>
+    </header>
+
+    <main class="main page__body">
+      <section class="box">
+        <header class="box__head">
+          <h2 class="box__tit">影像測試</h2>
+        </header>
+        <div class="box__body">
+          <ul class="box__ul">
+            <li class="box__li">調整影像品質, development 不調整, 避免開發中效率太差</li>
+            <li class="box__li">小於 2 k 轉為 base64</li>
+          </ul>
+          <figure class="box__imgs">
+            <img class="box__img" src="<%= require('@/assets/images/webpack.png') %>" alt="">
+            <img class="box__img" src="<%= require('@/assets/images/instagram.svg') %>" width="200" alt="">
+          </figure>
+        </div>
+      </section>
+
+      <section class="box">
+        <header class="box__head">
+          <h2 class="box__tit">fontawesome 測試</h2>
+        </header>
+        <div class="box__body">
+          <div class="box">
+            <div class="box__head">
+              <h3 class="box__tit">solid</h3>
+            </div>
+            <div class="box__body">
+              <div class="icons">
+                <div class="icon">
+                  <i class="fas fa-times"></i>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-video"></i>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-bomb"></i>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="box">
+            <div class="box__head">
+              <h3 class="box__tit">regular</h3>
+            </div>
+            <div class="box__body">
+              <div class="icons">
+                <div class="icon">
+                  <i class="far fa-hand-point-right"></i>
+                </div>
+                <div class="icon">
+                  <i class="far fa-smile"></i>
+                </div>
+                <div class="icon">
+                  <i class="far fa-snowflake"></i>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="box">
+            <div class="box__head">
+              <h3 class="box__tit">brands</h3>
+            </div>
+            <div class="box__body">
+              <div class="icons">
+                <div class="icon">
+                  <i class="fab fa-youtube"></i>
+                </div>
+                <div class="icon">
+                  <i class="fab fa-xbox"></i>
+                </div>
+                <div class="icon">
+                  <i class="fab fa-trello"></i>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+</body>
+
+</html>

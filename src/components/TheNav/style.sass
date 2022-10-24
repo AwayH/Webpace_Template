@@ -1,0 +1,22 @@
+.nav
+  &__ul
+    display: flex
+
+  &__li
+    padding:
+      left: $base
+      right: $base
+    color: #666
+
+    & + &
+      border:
+        left: 1px solid #fff
+
+  a
+    color: #fff
+    text:
+      decoration: none
+    
+    &:hover
+      text:
+        decoration: underline
