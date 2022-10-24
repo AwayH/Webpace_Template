@@ -3,20 +3,21 @@ import './style.sass';
 const arr = [
   {
     name: '基本測試',
-    path: 'index',
+    path: 'demo1',
   }, {
-    name: '非同步載入',
-    path: 'async',
+    name: '非同步測試',
+    path: 'demo2',
   },
 ];
 
 const makeString = (param) => {
   let str = '';
-  arr.forEach((i, idx) => {
+  arr.forEach((i) => {
     str += `
       <li class="nav__li">
 ${
-  (param === '/' && idx === 0) || param.match(i.path)
+  // (param === '/' && idx === 0) || param.match(i.path)
+  param.match(i.path)
     ? i.name : `<a href="./${i.path}.html">${i.name}</a>`
 }
       </li>`;
