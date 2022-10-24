@@ -1,0 +1,25 @@
+.box
+  line-height: 1.5
+  color: #eee
+  background:
+    color: rgba(0, 0, 0, .5)
+  overflow: hidden
+
+  & + &
+    margin:
+      top: 1rem
+
+  &__head, &__body
+    margin: 1rem    
+
+  &__tit
+    font:
+      size: 1.5rem
+    text:
+      transform: capitalize
+
+  &__ul
+    list-style-type: square
+    margin:
+      left: 1.5rem
+
