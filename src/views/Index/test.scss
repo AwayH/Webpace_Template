@@ -1,0 +1,12 @@
+.box {
+  &__item {
+    position: relative;
+    border: solid 1px #ddd;
+
+    &:hover {
+      width: 100% / 2;
+      color: #f00;
+      opacity: .4;
+    }
+  }
+}
