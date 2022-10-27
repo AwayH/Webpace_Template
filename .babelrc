@@ -4,7 +4,7 @@
       "@babel/preset-env",
       {
         "targets": {
-          // "chrome": "74"
+          // "chrome": "74",
           "browsers": [
             ">= 1%",
             "last 2 versions",
