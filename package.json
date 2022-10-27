@@ -1,6 +1,6 @@
 {
   "name": "webpack-template",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "一般靜態網頁使用",
   "main": "webpack.config.js",
   "author": "Away",
