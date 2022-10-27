@@ -1,6 +1,6 @@
 {
   "name": "webpack-template",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "一般靜態網頁使用",
   "main": "webpack.config.js",
   "author": "Away",
@@ -9,7 +9,8 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "rimraf ./dist && cross-env NODE_ENV=production webpack",
     "remove:node": "rimraf node_modules",
-    "remove:dist": "rimraf dist"
+    "remove:dist": "rimraf dist",
+    "remove:all": "rimraf node_modules dist"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
