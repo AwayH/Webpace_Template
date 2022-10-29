@@ -14,6 +14,7 @@ module.exports = {
 
   // 入口（多入口以物件設定）
   entry: {
+    all: './all',
     index: './views/Index',
     demo1: './views/Demo1',
     demo2: './views/Demo2',
@@ -53,7 +54,8 @@ module.exports = {
         },
         include: [path.resolve('src')],
         // exclude: /node_modules/,
-      }, {
+      },
+      {
         test: /\.css$/,
         use: [
           {
@@ -61,7 +63,8 @@ module.exports = {
             options: { // 背景影像路徑
               publicPath: '../',
             },
-          }, {
+          },
+          {
             loader: 'css-loader',
             options: {
               sourceMap: IS_DEV,
@@ -69,7 +72,8 @@ module.exports = {
           },
         ],
         include: path.resolve('src'),
-      }, {
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
           {
@@ -77,21 +81,27 @@ module.exports = {
             options: { // 背景影像路徑
               publicPath: '../',
             },
-          }, {
+          },
+          {
             loader: 'css-loader',
             options: {
               sourceMap: IS_DEV,
             },
-          }, {
+          },
+          {
             loader: 'sass-loader',
             options: {
               sourceMap: IS_DEV,
-              additionalData: '@import ~assets/style/utils/variables',
+              additionalData: `
+                @import "~assets/style/utils/variables"
+                @import "~assets/style/utils/mixins"`,
             },
           },
+
         ],
         include: path.resolve('src'),
-      }, {
+      },
+      {
         test: /\.(png|jpg|gif|svg|ico)$/i,
         use: [
           {
@@ -103,7 +113,8 @@ module.exports = {
               // 沒加會變成 [object Module]
               esModule: false,
             },
-          }, {
+          },
+          {
             loader: 'image-webpack-loader',
             options: {
               disable: IS_DEV,
@@ -139,7 +150,7 @@ module.exports = {
         title: '首頁 - 佔版面用',
         template: './views/Index/template.html',
         filename: 'index.html',
-        chunks: ['index'],
+        chunks: ['index', 'all'],
       },
     ),
     new HtmlWebpackPlugin(
@@ -171,7 +182,7 @@ module.exports = {
         },
         template: './views/Demo1/template.html',
         filename: 'demo1.html',
-        chunks: ['demo1'],
+        chunks: ['demo1', 'all'],
       },
     ),
     new HtmlWebpackPlugin(
@@ -179,7 +190,7 @@ module.exports = {
         title: 'Demo - 非同步測試',
         template: './views/Demo2/template.html',
         filename: 'demo2.html',
-        chunks: ['demo2'],
+        chunks: ['demo2', 'all'],
       },
     ),
     new MiniCssExtractPlugin(
