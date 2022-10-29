@@ -1,4 +1,3 @@
-import '@/assets/style/all.sass';
 import './style.sass';
 import '@/assets/style/modules/box.sass';
 import '@/assets/style/modules/icon.sass';
