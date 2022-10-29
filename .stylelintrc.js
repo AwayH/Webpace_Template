@@ -1,17 +1,9 @@
 module.exports = {
   extends: [
     'stylelint-config-standard-scss',
-    'stylelint-config-recommended-vue'
   ],
   plugins: [
-    'stylelint-order'
-  ],
-  customSyntax: 'postcss-html',
-  overrides: [
-    {
-      files: ['**/*.{scss,css,sass}'], // css 相关文件由 postcss-scss 处理
-      customSyntax: 'postcss-scss'
-    },
+    'stylelint-order',
   ],
   rules: {
     "max-nesting-depth": [3, {

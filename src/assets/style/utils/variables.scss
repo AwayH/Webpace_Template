@@ -1,0 +1,14 @@
+$primary-color: blue;
+$bg-color: #eee;
+$max-width: 960px;
+$min: 5px;
+$base: $min * 3;
+$font-stack: "Arial", "Helvetica", "LiHei Pro", "Microsoft JhengHei", "MingLiu", sans-serif;
+$grid-breakpoints: (
+  xs: 320px,
+  sm: 480px,
+  md: 820px,
+  lg: 1000px,
+  xl: 1200px,
+  xxl: 1400px
+);
