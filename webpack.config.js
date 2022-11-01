@@ -4,17 +4,17 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const IS_DEV = process.env.NODE_ENV === 'development';
-const CONTENT_HASH = IS_DEV ? '' : '-[contenthash]';
+const CONTENT_HASH = IS_DEV ? '' : '[contenthash]';
 
 module.exports = {
   mode: process.env.NODE_ENV,
 
-  // context 指定所有的檔案都從 src 資料始開始
+  // context 指定所有的檔案都從 src 資料始開始npm
   context: path.resolve('src'),
 
   // 入口（多入口以物件設定）
   entry: {
-    all: './all',
+    all: './assets/style/all.sass',
     index: './views/Index',
     demo1: './views/Demo1',
     demo2: './views/Demo2',
@@ -25,10 +25,11 @@ module.exports = {
 
   // 出口（filename 會對應入口的檔案名稱）
   output: {
-    filename: `js/[name]${CONTENT_HASH}.js`,
+    filename: `js/[name].${CONTENT_HASH}.js`,
     // chunkFilename: `js/[name]-chunk${CONTENT_HASH}.js`,
     path: path.resolve('dist'),
     publicPath: IS_DEV ? '/' : './',
+    clean: true,
   },
 
   resolve: { // 省略引入的路徑
@@ -145,69 +146,59 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin(
-      {
-        title: '首頁 - 佔版面用',
-        template: './views/Index/template.html',
-        filename: 'index.html',
-        chunks: ['index', 'all'],
-      },
-    ),
-    new HtmlWebpackPlugin(
-      {
-        title: 'Demo - 基本測試',
-        meta: {
-          description: '此網頁的介紹文',
-          keyword: '此網頁的關鍵字',
-          'og:title': {
-            property: 'og:title',
-            content: '此網頁轉貼到 FB 上渲染出來的標題字',
-          },
-          'og:description': {
-            property: 'og:description',
-            content: '此網頁轉貼到 FB 上渲染出來的介紹文',
-          },
-          'og:type': {
-            property: 'og:type',
-            content: '此網頁的類型',
-          },
-          'og:url': {
-            property: 'og:url',
-            content: '此網頁轉貼到 FB 上渲染出來的獨立網址',
-          },
-          'og:image': {
-            property: 'og:image',
-            content: '此網頁轉貼到 FB 上渲染出來的影像',
-          },
+    new HtmlWebpackPlugin({
+      title: '首頁 - 佔版面用',
+      template: './views/Index/template.html',
+      filename: 'index.html',
+      chunks: ['index', 'all'],
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Demo - 基本測試',
+      meta: {
+        description: '此網頁的介紹文',
+        keyword: '此網頁的關鍵字',
+        'og:title': {
+          property: 'og:title',
+          content: '此網頁轉貼到 FB 上渲染出來的標題字',
         },
-        template: './views/Demo1/template.html',
-        filename: 'demo1.html',
-        chunks: ['demo1', 'all'],
+        'og:description': {
+          property: 'og:description',
+          content: '此網頁轉貼到 FB 上渲染出來的介紹文',
+        },
+        'og:type': {
+          property: 'og:type',
+          content: '此網頁的類型',
+        },
+        'og:url': {
+          property: 'og:url',
+          content: '此網頁轉貼到 FB 上渲染出來的獨立網址',
+        },
+        'og:image': {
+          property: 'og:image',
+          content: '此網頁轉貼到 FB 上渲染出來的影像',
+        },
       },
-    ),
-    new HtmlWebpackPlugin(
-      {
-        title: 'Demo - 非同步測試',
-        template: './views/Demo2/template.html',
-        filename: 'demo2.html',
-        chunks: ['demo2', 'all'],
-      },
-    ),
-    new MiniCssExtractPlugin(
-      {
-        filename: `style/[name]${CONTENT_HASH}.css`,
-      },
-    ),
-    new CopyPlugin(
-      {
-        patterns: [
-          {
-            from: '../static',
-            to: 'static',
-          },
-        ],
-      },
-    ),
+      template: './views/Demo1/template.html',
+      filename: 'demo1.html',
+      chunks: ['demo1', 'all'],
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Demo - 非同步測試',
+      template: './views/Demo2/template.html',
+      filename: 'demo2.html',
+      chunks: ['demo2', 'all'],
+    }),
+    new MiniCssExtractPlugin({
+      filename: `style/[name].${CONTENT_HASH}.css`,
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: '../static',
+          to: 'static',
+        },
+      ],
+    }),
   ],
   devServer: {
     // 開發 Router 使用
@@ -215,11 +206,11 @@ module.exports = {
     port: 3000,
     open: true,
     hot: false,
-    liveReload: true,
+    // liveReload: true,
   },
   // optimization: {
   // // https://webpack.js.org/plugins/split-chunks-plugin/#optimizationsplitchunks
-  // splitChunks: {
+  //   splitChunks: {
   //     chunks: 'all',
   //     cacheGroups: {
   //       verdors: {
@@ -231,6 +222,6 @@ module.exports = {
   //         enforce: true,
   //       },
   //     },
-  // },
+  //   },
   // },
 };
