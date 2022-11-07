@@ -1,5 +1,5 @@
-import './style.sass';
-import '@/assets/style/modules/tag.sass';
+import './style.scss';
+import '@/assets/style/modules/tag.scss';
 import axios from 'axios';
 
 import TheHeader from '@/components/TheHeader';

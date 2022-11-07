@@ -1,0 +1,10 @@
+body {
+  @include bp(md) {
+    font-size: 20px;
+    background-color: lightblue;
+  }
+
+  @include bp(sm) {
+    background-color: yellow;
+  }
+}
