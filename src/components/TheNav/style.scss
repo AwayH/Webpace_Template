@@ -1,0 +1,33 @@
+.nav {
+  &__ul {
+    display: flex;
+  }
+
+  &__li {
+    padding: {
+      right: $base;
+      left: $base;
+    }
+
+    color: #666;
+
+    & + & {
+      border: {
+        left: 1px solid #fff;
+      }
+    }
+  }
+
+  a {
+    color: #fff;
+    text: {
+      decoration: none;
+    }
+
+    &:hover {
+      text: {
+        decoration: underline;
+      }
+    }
+  }
+}

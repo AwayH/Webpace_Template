@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  background-color: #000;
+
+  &__head,
+  &__body,
+  &__foot {
+    padding: 1rem;
+  }
+
+  &__head {
+    font-weight: 600;
+    color: #ddd;
+  }
+
+  a {
+    text-decoration: none;
+    color: #ddd;
+  }
+}

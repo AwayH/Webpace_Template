@@ -1,6 +1,6 @@
-import './style.sass';
-import '@/assets/style/modules/box.sass';
-import '@/assets/style/modules/icon.sass';
+import './style.scss';
+import '@/assets/style/modules/box.scss';
+import '@/assets/style/modules/icon.scss';
 import './abc.css';
 import fontawesome from '@fortawesome/fontawesome';
 

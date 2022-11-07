@@ -1,4 +1,4 @@
-import './style.sass';
+import './style.scss';
 
 const arr = [
   {
@@ -22,7 +22,7 @@ ${
 }
       </li>`;
   });
-  return `<ul class="nav__ls">${str}</ul>`;
+  return `<ul class="nav__ul">${str}</ul>`;
 };
 
 export default {

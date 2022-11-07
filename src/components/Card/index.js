@@ -1,4 +1,4 @@
-import './style.sass';
+import './style.scss';
 import fontawesome from '@fortawesome/fontawesome';
 
 // 檔案大

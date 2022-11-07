@@ -1,0 +1,12 @@
+.container {
+  width: $max-width;
+}
+
+.mx {
+  &-auto {
+    margin: {
+      right: auto;
+      left: auto;
+    }
+  }
+}
