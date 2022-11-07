@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const IS_DEV = process.env.NODE_ENV === 'development';
-const CONTENT_HASH = IS_DEV ? '' : '[contenthash]';
+const CONTENT_HASH = IS_DEV ? '' : '[contenthash:8]';
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -14,7 +14,7 @@ module.exports = {
 
   // 入口（多入口以物件設定）
   entry: {
-    all: './assets/style/all.sass',
+    all: './assets/style/all.scss',
     index: './views/Index',
     demo1: './views/Demo1',
     demo2: './views/Demo2',
@@ -94,8 +94,9 @@ module.exports = {
             options: {
               sourceMap: IS_DEV,
               additionalData: `
-                @import "~assets/style/utils/variables"
-                @import "~assets/style/utils/mixins"`,
+                @import "~assets/style/utils/variables";
+                @import "~assets/style/utils/mixins";
+              `,
             },
           },
 
@@ -109,7 +110,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 1024 * 2,
-              name: IS_DEV ? '[name].[ext]' : '[name].[ext]?[contenthash:10]',
+              name: `[name].[ext]?${CONTENT_HASH}`,
               outputPath: 'images',
               // 沒加會變成 [object Module]
               esModule: false,

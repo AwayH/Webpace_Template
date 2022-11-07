@@ -1,0 +1,19 @@
+.card {
+  background: {
+    color: #fff;
+    border: solid 1px #ddd;
+  }
+
+  overflow: hidden;
+
+  &__head,
+  &__body {
+    margin: 1rem;
+  }
+
+  &__tit {
+    font: {
+      size: 1.5rem;
+    }
+  }
+}
